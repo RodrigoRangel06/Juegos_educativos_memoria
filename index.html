@@ -5,52 +5,55 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+     <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+    <link href="https://unpkg.com/nes.css/css/nes.css" rel="stylesheet" /> 
     <title>Juego de Memoria</title>
 </head>
 <body>
     <main>
         <section class="section1">
             <h1>Juego de Memoria</h1>
-            <table>
+            <table class="nes-table is-bordered is-centered">
                 <tr>
-                    <td><button id="0" onclick="destapar(0)">Hola</button></td>
-                    <td><button id="1" onclick="destapar(1)">Hola</button></td>
-                    <td><button id="2" onclick="destapar(2)">Hola</button></td>
-                    <td><button id="3" onclick="destapar(3)">Hola</button></td>
+                    <td><button id="0" onclick="destapar(0)" class="nes-btn"></button></td>
+                    <td><button id="1" onclick="destapar(1)" class="nes-btn"></button></td>
+                    <td><button id="2" onclick="destapar(2)" class="nes-btn"></button></td>
+                    <td><button id="3" onclick="destapar(3)" class="nes-btn"></button></td>
                 </tr>
                 <tr>
-                    <td><button id="4" onclick="destapar(4)">Hola</button></td>
-                    <td><button id="5" onclick="destapar(5)">Hola</button></td>
-                    <td><button id="6" onclick="destapar(6)">Hola</button></td>
-                    <td><button id="7" onclick="destapar(7)">Hola</button></td>
+                    <td><button id="4" onclick="destapar(4)" class="nes-btn"></button></td>
+                    <td><button id="5" onclick="destapar(5)" class="nes-btn"></button></td>
+                    <td><button id="6" onclick="destapar(6)" class="nes-btn"></button></td>
+                    <td><button id="7" onclick="destapar(7)" class="nes-btn"></button></td>
                 </tr>
                 <tr>
-                    <td><button id="8" onclick="destapar(8)">Hola</button></td>
-                    <td><button id="9" onclick="destapar(9)">Hola</button></td>
-                    <td><button id="10" onclick="destapar(10)">Hola</button></td>
-                    <td><button id="11" onclick="destapar(11)">Hola</button></td>
+                    <td><button id="8" onclick="destapar(8)" class="nes-btn"></button></td>
+                    <td><button id="9" onclick="destapar(9)" class="nes-btn"></button></td>
+                    <td><button id="10" onclick="destapar(10)" class="nes-btn"></button></td>
+                    <td><button id="11" onclick="destapar(11)" class="nes-btn"></button></td>
                 </tr>
                 <tr>
-                    <td><button id="12" onclick="destapar(12)">Hola</button></td>
-                    <td><button id="13" onclick="destapar(13)">Hola</button></td>
-                    <td><button id="14" onclick="destapar(14)">Hola</button></td>
-                    <td><button id="15" onclick="destapar(15)">Hola</button></td>
+                    <td><button id="12" onclick="destapar(12)" class="nes-btn"></button></td>
+                    <td><button id="13" onclick="destapar(13)" class="nes-btn"></button></td>
+                    <td><button id="14" onclick="destapar(14)" class="nes-btn"></button></td>
+                    <td><button id="15" onclick="destapar(15)" class="nes-btn"></button></td>
                 </tr>
             </table>
 
         </section>
         <section class="section2">
-            <h2 id="aciertos" class="estadisticas">Aciertos: 0</h2>
-            <h2 id="t-restante" class="estadisticas">Tiempo: 30 segundos</h2>
-            <h2 id="movimientos" class="estadisticas"> Movimientos: 0</h2>
+            <h2 id="aciertos" class="estadisticas">Aciertos: </h2>
+            <h2 id="t-restante" class="estadisticas">Tiempo: </h2>
+            <h2 id="movimientos" class="estadisticas"> Movimientos: </h2>
+            <button  id="reiniciar" class="nes-btn is-primary" onclick="window.location.reload();">Volver a Jugar</button>
 
         </section>
-           
     </main>
     <footer >
-        <p> Juego programado por 🦸‍♂️ <a href="https://github.com/RodrigoRangel06" target="_blank" >Rodrigo Rangel</a></p>
+        <p> Juego programado por <i class="nes-ash is-medium"></i> <a href="https://github.com/RodrigoRangel06" target="_blank" >Rodrigo Rangel <i class="nes-icon github is-medium"></i></a></p>
     </footer>
     <script src="main.js"></script>
 
 </body>
 </html>
+
