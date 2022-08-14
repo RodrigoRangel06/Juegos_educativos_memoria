@@ -7,9 +7,15 @@ segundoResultado = null;
 let movimientos = 0;
 let aciertos =  0;
 let temporizador = false;
-let timer = 5;
-let timerInicial = 5;
+let timer = 50;
+let timerInicial = 50;
 let tiempoRegresivoId = null;
+let winAudio = new Audio('./assets/sounds/win.wav');
+let loseAudio = new Audio('./assets/sounds/lose.wav');
+let rightAudio = new Audio('./assets/sounds/right.wav');
+let clicAudio = new Audio('./assets/sounds/clic.wav');
+let wrongAudio = new Audio('./assets/sounds/wrong.wav');
+
 
 //Apuntando a documentos HTML
 let mostrarMovimientos = document.getElementById('movimientos')
@@ -35,6 +41,7 @@ function contarTiempo() {
         if(timer == 0){
             clearInterval(tiempoRegresivoId);
             bloquearTarjetas();
+            loseAudio.play();
             let mostrarBoton = document.getElementById("reiniciar").style.visibility = "visible";
         }
 
@@ -44,7 +51,7 @@ function contarTiempo() {
 function bloquearTarjetas() {
     for (let  i=0; i<16; i++){
         let tarjetaBloqueada = document.getElementById(i);
-        tarjetaBloqueada.innerHTML= numeros[i];
+        tarjetaBloqueada.innerHTML= `<img src="./assets/img/${numeros[i]}.png" alt="">`;
         tarjetaBloqueada.disabled = true;
     }
 
@@ -70,7 +77,8 @@ function destapar(id) {
         //imprimo sobre el elemento html con el ID seleccionado.Como indice del arreglo le paso el ID del botón. Para asociar los 16 elementos del arreglo con los 16 IDs de los botones.
         // lo guardo en una variable para poder comparar
         primerResultado = numeros[id];
-        tarjeta1.innerHTML= primerResultado;
+        tarjeta1.innerHTML= `<img src="./assets/img/${primerResultado}.png" alt="">`;
+        clicAudio.play();
 
         //deshabilitar el primer botón seleccionado
         tarjeta1.disabled = true;
@@ -79,7 +87,7 @@ function destapar(id) {
         //mostrar el segundo numero
         tarjeta2 = document.getElementById(id);
         segundoResultado = numeros[id];
-        tarjeta2.innerHTML = segundoResultado;
+        tarjeta2.innerHTML = `<img src="./assets/img/${segundoResultado}.png" alt="">`;
 
         //Deshabilitar segundo botón
         tarjeta2.disabled= true;
@@ -100,15 +108,19 @@ function destapar(id) {
 
             //Imprimo en el HTML el número de aciertos
             mostrarAciertos.innerHTML = `Aciertos: ${aciertos}`;
+            rightAudio.play();
             
             //consulto si acierto es igual a 8 para mostrar mensajes
             if(aciertos == 8){
+                winAudio.play();
                 clearInterval(tiempoRegresivoId)
                 mostrarAciertos.innerHTML = `Aciertos: ${aciertos} 😱`;
                 mostrarTiempo.innerHTML = `Fantástico, sólo demoraste ${timerInicial - timer} segundos`;
                 mostrarMovimientos.innerHTML = `Movimientos: ${movimientos} ✌`;
+                let mostrarBoton = document.getElementById("reiniciar").style.visibility = "visible";
             }
         } else {
+            wrongAudio.play();
             //Mostrar momentaneamente valores y volver a tapar
             setTimeout(() => {
                 tarjeta1.innerHTML= '';
